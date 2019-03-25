@@ -260,19 +260,19 @@ var emily = {
     job: 'designer'
 };
 
-john.presentation('formal', 'morning');
-
-john.presentation.call(emily, 'friendly', 'afternoon');
-
+//john.presentation('formal', 'morning');
+//john.presentation.call(emily, 'friendly', 'afternoon');
 //john.presentation.apply(emily, ['friendly', 'afternoon']);
 
-var johnFriendly = john.presentation.bind(john, 'friendly');
+//BIND -> for presetting values and then use as Currying
+var johnFriendly = john.presentation.bind(john, 'friendly'); //bin -> returns a function
 
-johnFriendly('morning');
-johnFriendly('night');
+johnFriendly('morning');//currying
+johnFriendly('night');//currying
 
 var emilyFormal = john.presentation.bind(emily, 'formal');
 emilyFormal('afternoon');
+*/
 
 
 // Another cool example
@@ -295,10 +295,11 @@ function isFullAge(limit, el) {
 }
 
 var ages = arrayCalc(years, calculateAge);
+//we need to preset ''limit' value 'cause "fn" only accepts one parameter
 var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
-*/
+
 
 
 
